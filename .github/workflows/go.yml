@@ -17,7 +17,7 @@ jobs:
         echo -e "\n Data in report.xml file \n"
         cat test1/test-reports/report.xml
     - name: Running Test
-      run: go test ./... -v | go-junit-report > test1/test-reports/report.xml
+      run: go test ./... -v
       
   publish-test-report:
     if: always()
