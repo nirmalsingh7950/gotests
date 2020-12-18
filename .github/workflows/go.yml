@@ -14,14 +14,8 @@ jobs:
       run: |
         echo -e "\n PWD \n"
         pwd
-        echo -e "\n Data in report.xml file \n"
-        cat test1/test-reports/report.xml
-    - name: Running Test
-      run: go test ./... -v
-    - name: check go-junit-report present or not
-      run: |
-        echo -e "CHECK GO JUNIT REPORT"
-        go-junit-report --help
+    - name: Running Test and save xml reports
+      run: go test ./... -v | go-junit-report > report.xml
       
   publish-test-report:
     if: always()
@@ -33,4 +27,4 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1.6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: test1/test-reports/report.xml
+          files: report.xml
