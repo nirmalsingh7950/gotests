@@ -18,6 +18,10 @@ jobs:
         cat test1/test-reports/report.xml
     - name: Running Test
       run: go test ./... -v
+    - name: check go-junit-report present or not
+      run: |
+        echo -e "CHECK GO JUNIT REPORT"
+        go-junit-report --help
       
   publish-test-report:
     if: always()
