@@ -10,4 +10,14 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
     - name: Running Test
-      run: go test -v ./...
+      run: go test -v ./... | go-junit-report > test1/test-reports/report.xml
+  publish-test-report:
+    name: Publish Test Report
+    runs-on: self-hosted
+    steps:
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1.6
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: test1/test-reports/report.xml
