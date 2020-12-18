@@ -10,6 +10,9 @@ jobs:
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
+    - name: setting path
+      run: |
+        export PATH=$PATH:$HOME/go/bin
     - name: Running Test
       run: go test -v ./... | go-junit-report > test1/test-reports/report.xml
       
