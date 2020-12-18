@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="3" failures="0" time="0.002" name="_/home/nirmal/Documents/Nirmal/Xenonstack/git/github/go/tests/test1">
+		<properties>
+			<property name="go.version" value="go1.15.6"></property>
+		</properties>
+		<testcase classname="test1" name="TestFibonacci" time="0.000"></testcase>
+		<testcase classname="test1" name="TestFibonacciFast" time="0.000"></testcase>
+		<testcase classname="test1" name="TestFibonacciFastest" time="0.000"></testcase>
+	</testsuite>
+</testsuites>
