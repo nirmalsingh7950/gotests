@@ -10,10 +10,12 @@ jobs:
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
-    - name: install go-junit-report utility
+    - name: Test report check
       run: |
-        go get -u github.com/jstemmer/go-junit-report
-        export PATH=$PATH:$HOME/go/bin
+        echo -e "\n PWD \n"
+        pwd
+        echo -e "\n Data in report.xml file \n"
+        cat test1/test-reports/report.xml
     - name: Running Test
       run: go test ./... -v | go-junit-report > test1/test-reports/report.xml
       
