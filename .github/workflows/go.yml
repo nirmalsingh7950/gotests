@@ -11,11 +11,12 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
     - name: Test report check
-      shell: bash
       run: |
         echo -e "\n PWD \n"
         pwd
     - name: Running Test and save xml reports
+      shell: bash
+      working-directory: gotests
       run: |
         go test ./... -v | go-junit-report > report.xml
       
