@@ -16,7 +16,6 @@ jobs:
         pwd
     - name: Running Test and save xml reports
       shell: bash
-      working-directory: gotests
       run: |
         go test ./... -v | go-junit-report > report.xml
       
