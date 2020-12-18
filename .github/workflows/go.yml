@@ -11,3 +11,15 @@ jobs:
       uses: actions/checkout@v2
     - name: Running Test
       run: go test -v ./...
+      
+  publishtestreport:
+    name: Publish Test Report
+    runs-on: self-hosted
+   
+    steps:
+     - name: Publish Unit Test Results
+       uses: EnricoMi/publish-unit-test-result-action@v1.6
+       if: always()
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         files: test1/test-reports/*.xml
