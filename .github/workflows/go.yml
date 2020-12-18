@@ -15,7 +15,8 @@ jobs:
         echo -e "\n PWD \n"
         pwd
     - name: Running Test and save xml reports
-      run: go test ./... -v | go-junit-report > report.xml
+      run: |
+        go test ./... -v | go-junit-report > report.xml
       
   publish-test-report:
     if: always()
